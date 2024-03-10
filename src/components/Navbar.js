@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
-
+import logo from "./assets/logo.png";
 export default function Navbar(props) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -15,9 +14,13 @@ export default function Navbar(props) {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav
+      className="navbar navbar-expand-lg bg-body-tertiary"
+      data-bs-theme={props.mode ? "" : "dark"}
+    >
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <img src={logo} alt="Logo" className="navbar-logo" style={{width:"30px",height:"auto",margin:"10px"}}/>
+        <a className="navbar-brand">
           {props.title}
         </a>
         <button
@@ -45,26 +48,26 @@ export default function Navbar(props) {
               </a>
             </li>
           </ul>
+          <div className="form-check form-switch">
+            <input
+              className="form-check-input custom-switch"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckDefault"
+              onClick={props.toggleMode}
+              style={
+                !props.mode
+                  ? {
+                      backgroundColor: "grey",
+                      borderColor: "grey",
+                      boxShadow: "0 0 0 0.3rem rgba(0, 0, 0, 0.1)",
+                    }
+                  : {}
+              }
+            />
+          </div>
         </div>
-        <div className="form-check form-switch">
-      <input
-        className="form-check-input custom-switch"
-        type="checkbox"
-        role="switch"
-        id="flexSwitchCheckDefault"
-        checked={isChecked}
-        onChange={handleChange}
-        style={isChecked ? { backgroundColor: 'grey', borderColor: 'grey', boxShadow: '0 0 0 0.3rem rgba(0, 0, 0, 0.1)' } : {}}
-      />
-    </div>
       </div>
     </nav>
   );
 }
-
-Navbar.propTypes = {
-  title: PropTypes.string,
-};
-Navbar.defaultProps = {
-  title: "Set Title Here",
-};

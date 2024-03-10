@@ -84,7 +84,7 @@ export default function Textform(props) {
 
   return (
     <>
-      <div className="flex flex-col text-center justify-center">
+      <div className="flex flex-col text-center justify-center"style={{ overflowY:"scroll"}}>
         <h2 className="mt-3 font-weight-normal">{props.title.toUpperCase()}</h2>
         <p className="text-muted text-monospace font-weight-lighter mb-3">
           {props.warning}
