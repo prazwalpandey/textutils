@@ -84,19 +84,20 @@ export default function Textform(props) {
 
   return (
     <>
-      <div className="flex flex-col text-center justify-center"style={{ overflowY:"scroll"}}>
-        <h2 className="mt-3 font-weight-normal">{props.title.toUpperCase()}</h2>
-        <p className="text-muted text-monospace font-weight-lighter mb-3">
+      <div className="flex flex-col text-center justify-center items-center">
+        <h2 className={`mt-3 font-weight-normal ${props.mode ? '' : 'text-white'}`}>{props.title.toUpperCase()}</h2>
+        <p className="text-monospace font-weight-lighter mb-3" style={{ color: props.mode ? '' : 'white' }}>
           {props.warning}
         </p>
         <textarea
-          className="form-control mb-1"
+          className="form-control mb-1 mx-auto"
           id="textBox"
           value={text}
           onChange={handleOnChange}
-          rows="10"
+          rows="15"
+          style={{ width: "60%", ...(props.mode ? {} : { background: "#474848", borderColor: "white", color: "white" }) }}
         />
-        <div className="flex text-monospace mb-1 w-full justify-evenly">
+        <div className="flex text-monospace mb-1 w-full justify-evenly" style={{ color: props.mode ? '' : 'white' }}>
           <span className="mx-2">Characters : {text.length}</span>
           <span>|</span>
           <span className="mx-2">Words : {countWords(text)}</span>
@@ -129,7 +130,7 @@ export default function Textform(props) {
           </button>
         </div>
         <div className="container flex flex-row my-1">
-          <button className="btn btn-primary m-1" onClick={handleUpClick}>
+          <button className="btn btn-primary m-1" onClick={handleUpClick} >
             UPPERCASE
           </button>
           <button className="btn btn-primary m-1" onClick={handleLoClick}>

@@ -9,9 +9,9 @@ function App() {
     setMode(!mode)
   }
   return (
-    <div className="flex flex-col justify-center" style={{width:"100vw",height:"auto",background:"#46444B"}}>
+    <div id="root" style={{ background: !mode ? "#5c5b5e" : "#ffffff" }}>
     <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode}/>
-    <div className="container h-full" style={{overflowY:"auto",height:"containerHeight"}}>
+    <div className="container" mode={mode}>
     <Textform title="Text Box" mode={mode} warning="Enter the text in the box below."/>
     </div>
     </div>
