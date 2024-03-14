@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
-function Aboutus() {
+
+function Aboutus(props) {
   return (
-    <div className="flex" style={{height:"100%",justifyContent:"center",alignItems:"center"}}>
-      <div className="accordion" id="accordionPanelsStayOpenExample" style={{margin:"auto"}}>
-        <div className="accordion-item">
+    <div className="flex" style={{height:"100%",width:"65%"}}>
+      <div className="accordion" id="accordionPanelsStayOpenExample">
+        <div className="accordion-item" style={props.mode ?{}:{background: "#474848",borderColor: "white", color: "white" }}>
           <h2 className="accordion-header" id="panelsStayOpen-headingOne">
             <button
               className="accordion-button"
@@ -34,7 +35,7 @@ function Aboutus() {
             </div>
           </div>
         </div>
-        <div className="accordion-item">
+        <div className="accordion-item" style={props.mode ?{}:{background: "#474848",borderColor: "white", color: "white" }}>
           <h2 className="accordion-header" id="panelsStayOpen-headingTwo">
             <button
               className="accordion-button collapsed"
@@ -65,7 +66,7 @@ function Aboutus() {
             </div>
           </div>
         </div>
-        <div className="accordion-item">
+        <div className="accordion-item" style={props.mode ?{}:{background: "#474848",borderColor: "white", color: "white" }}>
           <h2 className="accordion-header" id="panelsStayOpen-headingThree">
             <button
               className="accordion-button collapsed"

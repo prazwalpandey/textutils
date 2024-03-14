@@ -12,11 +12,11 @@ function App() {
   return (
     <div id="root" style={{ background: !mode ? "#5c5b5e" : "#ffffff" }}>
     <Navbar title="TextUtils" style={{flex:"0 0 20%"}} mode={mode} toggleMode={toggleMode}/>
-    {/* <div className="container" mode={mode}>
+    {/* <div className="container">
     <Textform title="Text Box" mode={mode} warning="Enter the text in the box below."/>
     </div> */}
-    <div className="container" style={{flex:"1"}}>
-      <Aboutus/>
+    <div className="container" style={{ display: "flex", justifyContent: "center",flex:"1",marginTop:"7vh" }}>
+      <Aboutus mode={mode}/>
     </div>
     </div>
   );
